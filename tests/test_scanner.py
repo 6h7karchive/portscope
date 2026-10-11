@@ -1,8 +1,7 @@
 import asyncio
+from argparse import ArgumentTypeError
 
 import pytest
-
-from argparse import ArgumentTypeError
 
 from portscope.cli import parse_ports
 from portscope.scanner import check_port, scan_ports
