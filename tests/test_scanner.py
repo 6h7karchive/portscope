@@ -2,6 +2,8 @@ import asyncio
 
 import pytest
 
+from argparse import ArgumentTypeError
+
 from portscope.cli import parse_ports
 from portscope.scanner import check_port, scan_ports
 
@@ -12,7 +14,7 @@ def test_parse_ports():
 
 @pytest.mark.parametrize("value", ["0", "65536", "80,nope", "80,80", ""])
 def test_parse_ports_rejects_invalid_input(value):
-    with pytest.raises(Exception):
+    with pytest.raises(ArgumentTypeError):
         parse_ports(value)
 
 
